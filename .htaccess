@@ -1,0 +1,32 @@
+Options -Indexes
+
+<IfModule authz_core_module>
+	<Files cache.cfg>
+		Require all denied
+	</Files>
+
+	<Files functions.php>
+		Require all denied
+	</Files>
+
+#	<Files cron.php>
+#		Require all denied
+#	</Files>
+</IfModule>
+
+<IfModule !authz_core_module>
+	<Files cache.cfg>
+		Order allow,deny
+		Deny from all
+	</Files>
+
+	<Files functions.php>
+		Order allow,deny
+		Deny from all
+	</Files>
+
+#	<Files cron.php>
+#		Order allow,deny
+#		Deny from all
+#	</Files>
+</IfModule>
